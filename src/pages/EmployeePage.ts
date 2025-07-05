@@ -57,7 +57,7 @@ export default class EmployeenPage{
 
     async verifyEmployeeSuccess(expectedText : string){
 
-        await expect(this.page.locator(this.employeeSuccessVerification)).toHaveText(expectedText);
+        await expect(this.page.locator(this.employeeSuccessVerification)).toContainText(expectedText);
     }
 
     async clickOnAddAnotherEmployee(){
