@@ -23,6 +23,7 @@ test("Add two employees and verify they are listed", async ({ page }) => {
     await employee.fillPhonenumber("123456789");
     await employee.fillJobTitle("Test");
     await employee.clickOnSaveEmployeeButton();
+     await page.waitForTimeout(5000); //
     await employee.verifyEmployeeSuccess("Success! New employee added");
   });
 
