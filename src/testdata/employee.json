@@ -1,0 +1,14 @@
+[{
+  "firstName": "Bruce Wayne",
+  "lastName": "TestLastName",
+  "email": "test1@yopmail.com",
+  "phoneNumber": "123456789",
+  "jobTitle": "Test"
+},
+{
+  "firstName": "Nick Fury",
+  "lastName": "TestLastName",
+  "email": "test2@yopmail.com",
+  "phoneNumber": "123456789",
+  "jobTitle": "Test"
+}]

@@ -8,6 +8,9 @@ export default class EmployeenPage{
     private readonly lastNameInputSelector = "#lastName";
     private readonly emailInputSelector = "#email";
     private readonly phoneNumberInputSelector = "#phoneNumber";
+    private readonly startDate = "#startDate";
+    private readonly getDate = "//*[@id='startDate']/div[2]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div[7]/div/div/div";
+   
     private readonly jobTitleInputSelector = "#jobTitle"; 
     private readonly saveButton = "//button[normalize-space()='Save new employee']"; 
     private readonly employeeSuccessVerification = "//h1[contains(text(),'Success! New employee added')]"; 
@@ -71,18 +74,11 @@ export default class EmployeenPage{
      async closeAddEmployeePopup() {
          await this.page.locator(this.closeAddEmployee).click();
     }
-    /*async verifyEmployeesListed(expectedNames: string[]) {
-      const nameLocators = this.page.locator(this.findEmployee);
-      const count = await nameLocators.count();
-      const actualNames: string[] = [];
-
-     for (let i = 0; i < count; i++) {
-      const name = await nameLocators.nth(i).innerText();
-      actualNames.push(name.trim());
+    async fillJoiningDate() {
+         // Click to open calendar popup
+         await this.page.locator(this.startDate).click();
+         await this.page.locator(this.getDate).click();
     }
-
-    for (const name of expectedNames) {
-      expect(actualNames).toContain(name);
-    }*/
+   
 }
     
