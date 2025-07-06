@@ -41,6 +41,7 @@ test("Add two employees and verify they are listed", async ({ page }) => {
     await employee.fillLastName("TestSecond");
     await employee.fillEmail("test2@yopmail.com");
     await employee.fillPhonenumber("1234567890");
+    await employee.fillJoiningDate();
     await employee.fillJobTitle("Test2");
     await employee.clickOnSaveEmployeeButton();
     await employee.verifyEmployeeSuccess("Success! New employee added");

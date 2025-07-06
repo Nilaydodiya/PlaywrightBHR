@@ -9,8 +9,7 @@ export default class EmployeenPage{
     private readonly emailInputSelector = "#email";
     private readonly phoneNumberInputSelector = "#phoneNumber";
     private readonly startDate = "#startDate";
-    private readonly getDate = "//*[@id='startDate']/div[2]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div[7]/div/div/div";
-   
+    private readonly getDate = "//div[contains(@class, 'DayPicker-Day--today')]";
     private readonly jobTitleInputSelector = "#jobTitle"; 
     private readonly saveButton = "//button[normalize-space()='Save new employee']"; 
     private readonly employeeSuccessVerification = "//h1[contains(text(),'Success! New employee added')]"; 
@@ -57,12 +56,9 @@ export default class EmployeenPage{
 
         await this.page.locator(this.saveButton).click();
     }
-
     async verifyEmployeeSuccess(expectedText : string){
-
         await expect(this.page.locator(this.employeeSuccessVerification)).toContainText(expectedText);
     }
-
     async clickOnAddAnotherEmployee(){
 
         await this.page.locator(this.addAnotherEmployeeButton).click();
@@ -75,7 +71,6 @@ export default class EmployeenPage{
          await this.page.locator(this.closeAddEmployee).click();
     }
     async fillJoiningDate() {
-         // Click to open calendar popup
          await this.page.locator(this.startDate).click();
          await this.page.locator(this.getDate).click();
     }
